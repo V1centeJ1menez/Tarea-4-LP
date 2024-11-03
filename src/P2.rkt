@@ -10,11 +10,17 @@
 
 
 (define (taylorCosenoCola n x)
+  ;; Factorial calculado usando acumulación.
   (define (factorial m acc)
     (if (= m 0) acc (factorial (- m 1) (* m acc))))
-  (define (taylorCos-aux n x term result)
-    (if (= n 0) result
-        (taylorCos-aux (- n 1) x
-                       (* -1 term)
-                       (+ result (/ term (factorial (* 2 (- n 1)) 1))))))
-  (taylorCos-aux n x 1 1))
+  
+  ;; Función auxiliar para la serie de Taylor usando recursión de cola.
+  (define (taylorCos-aux n term result)
+    (if (< n 0) result
+        ;; Cálculo del siguiente término de la serie, alternando el signo
+        (let ((next-term (* (/ (expt x (* 2 n)) (factorial (* 2 n) 1))
+                            (if (even? n) 1 -1))))
+          (taylorCos-aux (- n 1) next-term (+ result next-term)))))
+  
+  ;; Inicializamos la serie llamando con el primer término en 1
+  (taylorCos-aux n 1 1))
