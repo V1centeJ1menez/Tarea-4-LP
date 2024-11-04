@@ -43,7 +43,7 @@
   (define (taylorCos-aux n x i acumulador)
   
     ;; Caso base: si n es 0, retornar el resultado acumulado
-    (if (< n 0) acumulador
+    (if (= n 0) acumulador
         ;; Caso recursivo: calcular el siguiente término y actualizar el resultado
         (letrec ((cambioSigno (expt -1 i)) 
               (expresionConX (expt x (* 2 i))) 
@@ -53,10 +53,11 @@
                          (+ acumulador terminoI-esinmo)))))
  
   ;; Iniciar el cálculo con el primer término y el resultado acumulado inicial (1)
-  (taylorCos-aux n x 0 0))
+  (taylorCos-aux n x 0 1))
 
 
 ;; Ejemplo de uso:
+(taylorCosenoCola 10 1.0) ;; Calcula cos(1) usando 10 términos de la serie.
 (taylorSenoSimple 300 3.14)
 (taylorCosenoCola 300 3.14)
 (taylorSenoSimple 1 2.14)
