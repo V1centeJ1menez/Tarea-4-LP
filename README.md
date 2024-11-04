@@ -1,3 +1,4 @@
+
 # Tarea-4-LP
 
 **Nombre:** Vicente Jimenez  
@@ -5,7 +6,7 @@
 
 ## Descripción
 
-Esta tarea consiste en la implementación de cuatro funciones en Scheme, cada una diseñada para resolver un problema específico mediante el uso de recursión, funciones lambda y estructuras de datos en listas. A continuación se describe brevemente cada función:
+Esta tarea consiste en la implementación de cuatro funciones en Scheme, cada una diseñada para resolver un problema específico mediante el uso de recursión, funciones lambda y estructuras de datos en listas. A continuación, se describe brevemente cada función:
 
 ### 1. El Extraviado `(buscador lista elemento)`
    - **Descripción:** Esta función busca un elemento en una lista y devuelve su posición (comenzando desde 1). Si el elemento no está en la lista, devuelve -1. La búsqueda es exacta (distingue entre valores como `2` y `2.0`).
@@ -24,20 +25,36 @@ Esta tarea consiste en la implementación de cuatro funciones en Scheme, cada un
    - **Descripción:** La función recibe una estructura de árbol en forma de lista anidada y busca nodos con el valor `T`, que representan tesoros. Devuelve una lista de las profundidades de los nodos que contienen un tesoro, ordenadas de menor a mayor.
    - **Requisitos específicos:** Uso de recursión para explorar las listas anidadas (árbol).
 
+## Estructura del Proyecto
+
+La organización del proyecto es la siguiente:
+
+```
+Tarea4LP_202373523-k/
+└── src/
+    ├── P1.rkt  ; Implementación de `buscador`
+    ├── P2.rkt  ; Implementación de `taylorSenoSimple` y `taylorCosenoCola`
+    ├── P3.rkt  ; Implementación de `evaluador`
+    └── P4.rkt  ; Implementación de `profundidades`
+```
+
+Cada archivo en la carpeta `src` corresponde a un ejercicio de la tarea.
+
 ## Ejecución
 
 1. **Requisitos previos:** Asegúrese de tener instalado Racket con el lenguaje Scheme habilitado. Puede descargarlo desde [https://racket-lang.org/download/](https://racket-lang.org/download/).
 
-2. **Carga del archivo:** Abra DrRacket, seleccione `#lang scheme` en la primera línea del archivo, y cargue cada archivo correspondiente a cada pregunta:
+2. **Carga del archivo:** Abra DrRacket, seleccione `#lang scheme` en la primera línea de cada archivo y cargue el archivo correspondiente al ejercicio en cuestión:
    - `P1.rkt` para el ejercicio 1.
    - `P2.rkt` para el ejercicio 2.
    - `P3.rkt` para el ejercicio 3.
    - `P4.rkt` para el ejercicio 4.
 
-3. **Ejecución de las funciones:** En la consola de DrRacket, puede ejecutar los ejemplos proporcionados en la tarea o cualquier otro valor de prueba. Por ejemplo:
+3. **Ejecución de las funciones:** En la consola de DrRacket, puede ejecutar los ejemplos proporcionados en la tarea, o cualquier otro valor de prueba. Los ejemplos están escritos en código, por lo que aplicando `Run` se ejecutarán directamente:
+
    ```scheme
    (buscador '(1 2 3) 3) ; Ejemplo de uso de la función buscador
    (taylorSenoSimple 300 3.14) ; Ejemplo de Taylor para seno
    (evaluador (list (lambda (x) (+ x 1)) (lambda (x) (* x x))) '(2 5 7)) ; Ejemplo de composición rotacional
-   (profundidades '(1 (T (2 (T) (3))) (4 (5) (6)) (7 (T (8))))) ; Ejemplo de profundidades de tesoros
+   (profundidades '(1 (T (2 (T) (3))) (4 (5) (T)) (7 (T (8))))) ; Ejemplo de profundidades de tesoros
    ```
