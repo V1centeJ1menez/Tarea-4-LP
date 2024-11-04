@@ -20,11 +20,4 @@
       (else (aux (cdr lst) elem (+ index 1)))))  ;; De lo contrario, continuar con el resto de la lista.
   
   ;; Llamada inicial a la función auxiliar con el índice comenzando en 1.
-  (aux lista elemento 1))
-
-;; Ejemplo de uso:
-(buscador '(1 2 3) 3)
-(buscador '(ABC "ABC" 3.0 1234) "ABC")
-(buscador '(ABC "ABC" 3.0 1234) 'ABC)
-(buscador '(389 (2 4 5.0) (40 here 2)) '(40 here 2))
-(buscador '() 'INF253)
+  (aux lista elemento 1))                        

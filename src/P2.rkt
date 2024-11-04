@@ -46,12 +46,10 @@
     (if (< n 0) acumulador
         ;; Caso recursivo: calcular el siguiente término y actualizar el resultado
         (letrec ((cambioSigno (expt -1 i)) 
-              (expresionConX (expt x (* 2 i))) 
-              (elFactorial (factorial (* 2 i) 1))
-              (terminoI-esinmo (/ (* cambioSigno expresionConX) elFactorial))) 
-          (taylorCos-aux (- n 1) x (+ i 1) 
-                         (+ acumulador terminoI-esinmo)))))
- 
+                 (expresionConX (expt x (* 2 i))) 
+                 (elFactorial (factorial (* 2 i) 1))
+                 (terminoI-esinmo (/ (* cambioSigno expresionConX) elFactorial))) 
+                (taylorCos-aux (- n 1) x (+ i 1) (+ acumulador terminoI-esinmo)))))
   ;; Iniciar el cálculo con el primer término y el resultado acumulado inicial (1)
   (taylorCos-aux n x 0 0))
 
